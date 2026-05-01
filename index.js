@@ -1,6 +1,10 @@
 const express = require("express");
 const app = express();
-const PORT = 3000;
+
+const cors = require("cors");
+app.use(cors());
+
+const PORT = 3001;
 
 // Dummy blog data
 const posts = [
@@ -88,7 +92,7 @@ app.get("/api/posts", (req, res) => {
   res.json(summary);
 });
 
-// GET /api/post/:postHandle → single post
+// GET /api/posts/:postHandle → single post
 app.get("/api/post/:postHandle", (req, res) => {
   const { postHandle } = req.params;
 
